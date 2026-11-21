@@ -51,20 +51,6 @@ flowchart TD
 
 ---
 
-## 💰 100% Free Tier Compliance Matrix
-
-| AWS Service | What This Project Configures | Free Tier Allowance (12 Mo) | Project Consumption | Cost |
-| :--- | :--- | :--- | :--- | :--- |
-| **VPC & Subnets** | Custom VPC, Public Subnet, Isolated Private Subnet, Route Tables | Always Free | 1 VPC, 2 Subnets, 2 Route Tables | **₹0.00** |
-| **VPC Gateway Endpoint** | S3 Gateway Endpoint (`com.amazonaws.<region>.s3`) | Always Free (replaces ₹2,600/mo NAT Gateway) | 1 Gateway Endpoint | **₹0.00** |
-| **EC2 Worker Node** | 1x `t3.micro` inside Auto Scaling Group | 750 hrs / month | ~720 hrs / month (100% covered) | **₹0.00** |
-| **EBS Storage** | Root Volume (`gp3`, encrypted) | 30 GB / month | 8 GB total | **₹0.00** |
-| **Auto Scaling Group** | `min=1, max=1, desired=1` (Auto-Healing) | Always Free | 1 ASG | **₹0.00** |
-| **Security Groups** | Stateful firewall (**0 Inbound Rules, Zero SSH**) | Always Free | 1 Security Group | **₹0.00** |
-| **IAM & SSM** | Role, SSM Core Policy, Scoped S3 Policy | Always Free | 1 Role & Instance Profile | **₹0.00** |
-| **Amazon S3** | 2 Buckets (Raw + Processed) + SSE-S3 + Glacier Lifecycle | 5 GB Standard, 20k GET, 2k PUT | < 100 MB testing data | **₹0.00** |
-
----
 
 ## 🚀 Key Architectural Pillars
 
@@ -153,16 +139,7 @@ To destroy all provisioned resources anytime:
 
 ---
 
-## 🎯 Interview Talking Points ("The Demo Flex")
 
-1. **Auto-Healing Demonstration:**  
-   In the AWS EC2 Console, manually click **Terminate Instance** on the running worker. Show the interviewer that within ~50 seconds, the Auto Scaling Group detects capacity loss, bootstraps a replacement instance via the Launch Template, and resumes processing automatically.
-2. **Zero-Trust Security:**  
-   Show the Security Group with **0 inbound rules** and the EC2 instance with **no public IPv4**. Connect via browser through **AWS Systems Manager (SSM) Session Manager** with zero firewall holes.
-3. **Enterprise Cost Optimization:**  
-   Explain how the **VPC Gateway Endpoint for S3** eliminates NAT Gateway charges (~$32/mo), keeping data transfers internal and 100% Free Tier.
-
----
 
 ## 📄 License
 This project is open-source and licensed under the [MIT License](LICENSE).

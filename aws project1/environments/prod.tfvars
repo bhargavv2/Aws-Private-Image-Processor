@@ -1,0 +1,9 @@
+aws_region              = "us-east-1"
+project_name            = "image-processor"
+environment             = "prod"
+instance_type           = "t2.micro"
+vpc_cidr                = "10.20.0.0/16"
+public_subnet_cidr      = "10.20.1.0/24"
+private_subnet_cidr     = "10.20.2.0/24"
+glacier_transition_days = 30
+expiration_days         = 90

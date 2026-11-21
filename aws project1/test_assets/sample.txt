@@ -1,0 +1,12 @@
+CONFIDENTIAL ARCHITECTURE AUDIT DOCUMENT
+========================================
+Project: Enterprise Automated Private Image/Document Processor
+Security Model: Zero-Trust Private Network Isolation
+Cloud Provider: Amazon Web Services (AWS)
+
+Summary:
+This document tests the asynchronous ingestion pipeline. The private EC2 worker node
+must detect this file in the raw ingestion S3 bucket, prepend an audit header with
+timestamp and node metadata, save the processed document into the processed S3 bucket,
+and purge the raw item to maintain queue hygiene.
+========================================
